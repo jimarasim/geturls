@@ -3,14 +3,66 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="geturls.js"></script>
         <style>
+            
+            body
+            {
+                background-color:cornsilk;
+            }
+            
             ul
             {
                 list-style-type: none;
             }
+            
+            div#listdiv
+            {
+                overflow:hidden;
+                width:500px;
+                margin:0px;
+                border:0px;
+                padding:0px;
+                //float:left;
+                
+            }
+            
+            div#closediv
+            {
+                float:right;
+            }
+            
+            li
+            {
+                white-space:nowrap;
+            }
+            
+            li.withmargin
+            {
+                margin:0 0 10px 0;
+            }
+            
+            
+            a
+            {
+                color:green;
+                text-decoration:underline;   
+            }
+            
+            a:hover
+            {
+                font-weight:bold;
+            }
+            
+            
         </style>
         <title>Get Urls</title>
     </head>
     <body>
+        <div id="closediv">
+        <a id="closeAllButCurrent">close all tabs, but current</a>
+        </div>
+        
+        <div id="listdiv">
         <ul id="urls"></ul>
+        </div>
     </body>
 </html>
