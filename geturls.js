@@ -1,6 +1,3 @@
-var latestTabs;
-
-
 /**
  * This is called when the document is loaded
  * @param {type} param1
@@ -46,7 +43,13 @@ function UpdateTabList(){
             
             //when the url is clicked, highlight the tab
             $("#"+i).click(function(event){
-                chrome.tabs.highlight({tabs:[parseInt(event.target.id)]},function(window){/*console.log("highlight"+event.target.id);*/});
+                chrome.tabs.highlight({tabs:[parseInt(event.target.id)]},function(window){
+                    
+                    //set the window as active, in case there are multiple
+                    //chrome.windows.update(window.id, {focused:true});
+                    
+                    
+                });
                 
             });
         }
