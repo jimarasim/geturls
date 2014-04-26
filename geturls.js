@@ -10,9 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     //add listener for when tabs are removed
     chrome.tabs.onRemoved.addListener(function(tabId,removeInfo){
-            //remove all list items
-            $("#urls li").remove(); 
-
             //re-do list
             UpdateTabList();
     });
@@ -29,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
  * @returns {undefined}
  */
 function UpdateTabList(){
+    //remove all list items
+    $("#urls li").remove(); 
+
+            
     //query chrome for its tabs
     chrome.tabs.query({}, function (tabs) {
         
