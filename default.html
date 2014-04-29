@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Get Urls </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple">
+        <style>
+          div#title {
+            font-family: 'Rancho', serif;
+            font-size: 48px;
+          }
+          
+          div#paypal
+          {
+              float:right;
+          }
+        </style>
+    </head>
+    <body>
+        <div id='paypal'>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="NXFAGVMM9W8SS">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
+            
+        </div>
+        <div id='title'><a href='https://chrome.google.com/webstore/detail/geturls/enkbdcdmbcijggpeondbdhdbfhcjbfmc' target="_blank">Get Urls for Chrome</a></div><br/>
+        Chrome Extension to get URLs of open  tabs, and display them in a single list in a popup window, allowing one to easily copy and paste urls of all open tabs for future reference.<br />
+           Additionally:
+        <ul>
+            <li>Clicking the url in the popup window highlights the tab.</li>
+            <li>Clicking "close all tabs but current" link in upper right hand corner closes all but the current, highlighted tab.</li>
+        </ul>
+            
+        <br />
+        Known Issues:
+        <ul>
+            <li>Unexpected results when more than one Chrome window is open</li>
+            <li>List does not clear completely when "close all is clicked." 
+        </ul>
+        <img src='geturls_0.0.3.0 screenshot.png' />
+    </body>
+</html>

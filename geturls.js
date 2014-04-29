@@ -40,7 +40,7 @@ function UpdateTabList(){
             $("<li/>").appendTo("#urls").html("<b>"+tabs[i].title+"</b>");
             
             //url list item has a bottom margin, to space the entries apart
-            $("<li class='withmargin'/>").appendTo("#urls").html("<a id='"+i+"'>"+tabs[i].url+"</a>");
+            $("<li class='withmargin'/>").appendTo("#urls").html("<a href='#' id='"+i+"'>"+tabs[i].url+"</a>");
             
             //when the url is clicked, highlight the tab
             $("#"+i).click(function(event){
