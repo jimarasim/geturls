@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
     $("#closeAllButCurrent").click(function(){
         CloseAllButCurrentTab();
     });
+    
+    //create event to scrub images
+    $("#scrapeimages").click(function(){
+        ScrapeImages();
+    });
 });
 
 /**
@@ -48,8 +53,6 @@ function UpdateTabList(){
                     
                     //set the window as active, in case there are multiple
                     //chrome.windows.update(window.id, {focused:true});
-                    
-                    
                 });
                 
             });
@@ -77,6 +80,33 @@ function CloseAllButCurrentTab(){
             
         });
     });
+}
+
+/**
+ * This function scrapes all images off the current highlighted page
+ * @returns {undefined}
+ */
+function ScrapeImages(){
+    
+    chrome.tabs.getSelected(null,function(tab) 
+    {
+        //execute javascript on current tab, with jquery injected
+        chrome.tabs.executeScript(null, { file: "jquery-1.11.1.min.js" }, function() {
+            var script="var images;";
+            script+="images=$( 'img' );";
+            script+="$('body').empty();";
+            script+="images.each(function( index ) {document.write('<img src=\"'+$( this ).attr('src')+'\" /><br />');} ); ";
+            //script+="$( 'img' ).each(function( index ) {console.log( index + ': ' + $( this ).attr('src'));} ); ";
+            
+            chrome.tabs.executeScript(null,{code: script});
+        });
+        
+        
+        console.log("currenttab:"+tab.id);
+        
+    });
+    
+    
 }
 
 
