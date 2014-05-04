@@ -1,7 +1,5 @@
 /**
  * This is called when the document is loaded
- * @param {type} param1
- * @param {type} param2
  */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -71,7 +69,7 @@ function CloseAllButCurrentTab(){
         currentTab = tabs[0].id;
         chrome.tabs.query({}, function (tabs) {
             for (var i = 0; i < tabs.length; i++) {
-                if(tabs[i].id!=currentTab)
+                if(tabs[i].id!==currentTab)
                 {
                     chrome.tabs.remove(tabs[i].id, function(){});
                 }
