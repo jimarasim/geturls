@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     //add listener for when tabs are removed
     chrome.tabs.onRemoved.addListener(function(tabId,removeInfo){
-            //re-do list
-            UpdateTabList();
+        UpdateTabList();
+            
     });
 
     
@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
     //create event to scrub images
     $("#scrapeimages").click(function(){
         ScrapeImages();
+    });
+    
+    //create event to remove all audio and video
+    $("#removemedia").click(function(){
+        RemoveMedia();
     });
 });
 
@@ -78,6 +83,7 @@ function CloseAllButCurrentTab(){
             
         });
     });
+    
 }
 
 /**
@@ -100,11 +106,30 @@ function ScrapeImages(){
         });
         
         
-        console.log("currenttab:"+tab.id);
+        console.log("Scrape Images currenttab:"+tab.id);
         
     });
     
     
+}
+
+/**
+ * This function removes all media off the current highlighted page
+ * @returns {undefined}
+ */
+function RemoveMedia(){
+    chrome.tabs.getSelected(null,function(tab) 
+    {
+        //execute javascript on current tab, with jquery injected
+        chrome.tabs.executeScript(null, { file: "jquery-1.11.1.min.js" }, function() {
+            var script="$(\"object,audio,video,img,embed,div[class*='html5'],iframe\").remove();";
+            chrome.tabs.executeScript(null,{code: script});
+        });
+        
+        
+        console.log("Remove Audio and  Video currenttab:"+tab.id);
+        
+    });
 }
 
 

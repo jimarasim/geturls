@@ -16,9 +16,9 @@
             
             div#listdiv
             {
-                overflow-x:hidden;
+                overflow-x:scroll;
                 overflow-y:scroll;
-                width:300px;
+                width:500px;
                 height:300px;
                 margin:0px;
                 border:0px;
@@ -69,10 +69,16 @@
             <table>
                 <tr>
                     <td>
-                        <a href='#' id="scrapeimages">images</a>
+                        <!--<a href='#' id="scrapeimages">images only</a>-->
+                        <input type="button" id="removemedia" value="Remove Media"/>
                     </td>
                     <td>
-                        <a href='#' id="closeAllButCurrent">close tabs</a>
+                        <!--<a href='#' id="scrapeimages">images only</a>-->
+                        <input type="button" id="scrapeimages" value="Show Images Only"/>
+                    </td>
+                    <td>
+                        <!--<a href='#' id="closeAllButCurrent">close tabs</a>-->
+                        <input type="button" id="closeAllButCurrent" value="Close all but current tab"/>
                     </td>
                 </tr>
             </table>
