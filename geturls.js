@@ -48,7 +48,7 @@ function UpdateTabList(){
             $("<li/>").appendTo("#urls").html("<b>"+tabs[i].title+"</b>");
             
             //url list item has a bottom margin, to space the entries apart
-            $("<li class='withmargin'/>").appendTo("#urls").html("<a href='#' id='"+i+"'>"+tabs[i].url+"</a>");
+            $("<li class='withmargin'/>").appendTo("#urls").html("<a href='"+tabs[i].url+"' id='"+i+"'>"+tabs[i].url+"</a>");
             
             //when the url is clicked, highlight the tab
             $("#"+i).click(function(event){
@@ -121,8 +121,8 @@ function RemoveMedia(){
     chrome.tabs.getSelected(null,function(tab) 
     {
         //execute javascript on current tab, with jquery injected
-        chrome.tabs.executeScript(null, { file: "jquery-1.11.1.min.js" }, function() {
-            var script="$(\"object,audio,video,img,embed,div[class*='html5'],iframe\").remove();";
+        chrome.tabs.executeScript(null, { file: "jquery-2.1.1.min.js" }, function() {
+            var script="$(\"object,audio,video,img,embed,div[class*='html5'],iframe,*[style*='background-image'\").remove();";
             chrome.tabs.executeScript(null,{code: script});
         });
         
